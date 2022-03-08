@@ -165,4 +165,104 @@
             return month;
         }
 
+
+        /**
+         * To set author name
+         *
+         * @param authors will set author name
+         */
+        public void setAuthor(String authors) {
+            this.authors = authors;
+        }
+
+        /**
+         * To set journal name
+         *
+         * @param journal will set journal name
+         */
+        public void setJournal(String journal) {
+            this.journal = journal;
+        }
+
+        /**
+         * To set Title of the article
+         *
+         * @param title will set title of the article
+         */
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        /**
+         * To set value of year
+         *
+         * @param year will set value of year
+         */
+        public void setYear(String year) {
+            this.year = year;
+        }
+
+        /**
+         * To set value of volume
+         *
+         * @param volume will set value of volume
+         */
+        public void setVolume(String volume) {
+            this.volume = volume;
+        }
+
+        /**
+         * To set value of number
+         *
+         * @param number will set value of number
+         */
+        public void setNumber(String number) {
+            this.number = number;
+        }
+
+        /**
+         * To set value of pages
+         *
+         * @param pages will set value of pages
+         */
+        public void setPages(String pages) {
+            this.pages = pages;
+        }
+
+        /**
+         * To set value of keyword
+         *
+         * @param keywords will set value of keyword
+         */
+        public void setKeywords(String keywords) {
+            this.keywords = keywords;
+        }
+
+        /**
+         * To set value of DOI
+         *
+         * @param doi will set value of DOI
+         */
+        public void setDoi(String doi) {
+            this.doi = doi;
+        }
+
+        /**
+         * To set value of ISSN
+         *
+         * @param ISSN will set value of ISSN
+         */
+        public void setISSN(String ISSN) {
+            this.ISSN = ISSN;
+        }
+
+        /**
+         * To set value of Month
+         *
+         * @param month will set value of Month
+         */
+        public void setMonth(String month) {
+            this.month = month;
+        }
+
     }
