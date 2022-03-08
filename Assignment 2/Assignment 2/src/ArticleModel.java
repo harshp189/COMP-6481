@@ -265,4 +265,69 @@
             this.month = month;
         }
 
+        public void setData(String field, String data) {
+            switch (field) {
+                case "author": {
+                    setAuthor(data);
+                    break;
+                }
+
+                case "journal": {
+                    setJournal(data);
+                    break;
+                }
+
+                case "title": {
+                    setTitle(data);
+                    break;
+                }
+
+                case "year": {
+                    setYear(data);
+                    break;
+                }
+
+                case "volume": {
+                    setVolume(data);
+                    break;
+                }
+
+                case "number": {
+                    setNumber(data);
+                    break;
+                }
+
+                case "pages": {
+                    setPages(data);
+                    break;
+                }
+
+                case "keywords": {
+                    setKeywords(data);
+                    break;
+                }
+
+                case "doi": {
+                    setDoi(data);
+                    break;
+                }
+
+                case "ISSN": {
+                    setISSN(data);
+                    break;
+                }
+
+                case "month": {
+                    setMonth(data);
+                    break;
+                }
+
+                default: {
+                    System.out.println("Wrong field name: " + field);
+                }
+            }
+
+        }
+        
+
     }
