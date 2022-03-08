@@ -66,5 +66,103 @@
 
         }
 
+        /**
+         * To get author name
+         *
+         * @return will return the author name
+         */
+        public String getAuthor() {
+            return authors;
+        }
+
+        /**
+         * To get journal name
+         *
+         * @return will return journal name
+         */
+        public String getJournal() {
+            return journal;
+        }
+
+        /**
+         * To get Title of the article
+         *
+         * @return will return title of the article
+         */
+        public String getTitle() {
+            return title;
+        }
+
+        /**
+         * To get value of year
+         *
+         * @return will return value of year
+         */
+        public String getYear() {
+            return year;
+        }
+
+        /**
+         * To get value of volume
+         *
+         * @return will return value of volume
+         */
+        public String getVolume() {
+            return volume;
+        }
+
+        /**
+         * To get value of number
+         *
+         * @return will return value of number
+         */
+        public String getNumber() {
+            return number;
+        }
+
+        /**
+         * To get value of pages
+         *
+         * @return will return value of pages
+         */
+        public String getPages() {
+            return pages;
+        }
+
+        /**
+         * To get value of keyword
+         *
+         * @return will return value of keyword
+         */
+        public String getKeywords() {
+            return keywords;
+        }
+
+        /**
+         * To get value of DOI
+         *
+         * @return will return value of DOI
+         */
+        public String getDoi() {
+            return doi;
+        }
+
+        /**
+         * To get value of ISSN
+         *
+         * @return will return value of ISSN
+         */
+        public String getISSN() {
+            return ISSN;
+        }
+
+        /**
+         * To get value of Month
+         *
+         * @return will return value of Month
+         */
+        public String getMonth() {
+            return month;
+        }
 
     }
