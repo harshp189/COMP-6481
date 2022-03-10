@@ -113,6 +113,29 @@ public class BibCreator {
         return sbIEEE.toString();
     }
 
+    /**
+     * Method to create the ArticleModel passed in the NJ format and return it as a String
+     * @param article the passed article model
+     * @return will return the NJ format String
+     */
+
+    public static String createNJFormat(ArticleModel article) {
+
+        StringBuilder sbNJ = new StringBuilder();
+
+        String author = article.getAuthor().replaceAll("and", "&");
+        sbNJ.append(author);
+        sbNJ.append(". ");
+        sbNJ.append(article.getTitle() + ". ");
+        sbNJ.append(article.getJournal() + ". ");
+        sbNJ.append(article.getVolume() + ", ");
+        sbNJ.append(article.getPages());
+        sbNJ.append("(" + article.getYear() + ").");
+
+        return sbNJ.toString();
+    }
+
+
     public static boolean processFilesForValidation(Scanner scanner, PrintWriter printWriterACM, PrintWriter printWriterIEEE, PrintWriter printWriterNJ) throws FileInvalidException {
         return false;
     }
