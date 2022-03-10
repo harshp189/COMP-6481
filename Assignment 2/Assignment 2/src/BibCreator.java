@@ -88,6 +88,31 @@ public class BibCreator {
 
     }
 
+    /**
+     * Method to create the ArticleModel passed in the IEEE format and return it as a String
+     * @param article the passed article model
+     * @return will return the IEEE format String
+     */
+
+
+    public static String createIEEEFormat(ArticleModel article) {
+
+
+        StringBuilder sbIEEE = new StringBuilder();
+
+        sbIEEE.append(article.getAuthor().replaceAll(" and", ","));
+        sbIEEE.append(". \"");
+        sbIEEE.append(article.getTitle() + " \", ");
+        sbIEEE.append(article.getJournal() + ", ");
+        sbIEEE.append("vol. " + article.getVolume() + ", ");
+        sbIEEE.append("no. " + article.getNumber() + ", ");
+        sbIEEE.append("p. " + article.getPages() + ", ");
+        sbIEEE.append(article.getMonth() + " " + article.getYear() + ".");
+
+
+        return sbIEEE.toString();
+    }
+
     public static boolean processFilesForValidation(Scanner scanner, PrintWriter printWriterACM, PrintWriter printWriterIEEE, PrintWriter printWriterNJ) throws FileInvalidException {
         return false;
     }
