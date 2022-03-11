@@ -152,6 +152,11 @@ public class BibCreator {
         sbACM.append(article.getYear() + ". ");
         sbACM.append(article.getTitle() + ". ");
         sbACM.append(article.getJournal() + ". ");
+        sbACM.append(article.getVolume() + ", ");
+        sbACM.append(article.getNumber() + " ");
+        sbACM.append("(" + article.getYear() + "), ");
+        sbACM.append(article.getPages() + ". ");
+        sbACM.append("DOI:https://doi.org/" + article.getDoi() + ".");
 
         return sbACM.toString();
     }
