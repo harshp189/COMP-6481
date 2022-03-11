@@ -136,6 +136,27 @@ public class BibCreator {
     }
 
 
+    /**
+     * Method to create the ArticleModel passed in the ACM format and return it as a String
+     * @param article the passed article model
+     * @param index the passed index
+     * @return will return the ACM format String
+     */
+    public static String createACMFormat(ArticleModel article, int index) {
+
+        StringBuilder sbACM = new StringBuilder();
+
+        String[] author = article.getAuthor().split("and");
+        sbACM.append("[" + index + "]\t");
+        sbACM.append(author[0].trim() + " et al. ");
+        sbACM.append(article.getYear() + ". ");
+        sbACM.append(article.getTitle() + ". ");
+        sbACM.append(article.getJournal() + ". ");
+
+        return sbACM.toString();
+    }
+
+
     public static boolean processFilesForValidation(Scanner scanner, PrintWriter printWriterACM, PrintWriter printWriterIEEE, PrintWriter printWriterNJ) throws FileInvalidException {
         return false;
     }
