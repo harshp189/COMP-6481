@@ -255,6 +255,13 @@ public class BibCreator {
             }
 
 
+            printWriterIEEE.write(createIEEEFormat(article));
+            printWriterIEEE.write("\n\n");
+            printWriterNJ.write(createNJFormat(article));
+            printWriterNJ.write("\n\n");
+            printWriterACM.write(createACMFormat(article, j));
+            printWriterACM.write("\n\n");
+
 
         }
         return true;
