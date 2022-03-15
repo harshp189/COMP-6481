@@ -5,6 +5,55 @@ public class BibCreator {
     static int countValidFiles = 0;
     static int countInvalidFiles = 0;
 
+    public static void main(String[] args) {
+        System.out.println("Welcome to BibCreator!");
+
+        PrintWriter[][] printWriters = new PrintWriter[10][3];
+
+        openAllFiles(printWriters);
+        readAllFiles(printWriters);
+
+        Scanner scan = new Scanner(System.in);
+        BufferedReader bufferedReader = null;
+        try {
+            System.out.println("Please enter the name of the files that you need to review:");
+            String fileName = scan.nextLine();
+            bufferedReader = new BufferedReader(new FileReader(fileName));
+            System.out.println("Here are the contents of the successsfully created JSON File:"+fileName);
+            String strCurrentLine = null;
+            while ((strCurrentLine = bufferedReader.readLine()) != null) {
+                System.out.println(strCurrentLine);
+            }
+            System.out.println("Goodbye! Hope you have enjoyed creating the needed files using BibCreator.");
+        }
+        catch (FileNotFoundException e) {
+            try{
+                System.out.println("Could not open input file. File does not exist or could not be created.\n");
+                System.out.println("However, you will be allowed another chance to enter another file name:");
+                String fileName = scan.nextLine();
+                bufferedReader = new BufferedReader(new FileReader(fileName));
+                System.out.println("Here are the contents of the successsfully created JSON File:"+fileName);
+                String strCurrentLine = null;
+                while ((strCurrentLine = bufferedReader.readLine()) != null) {
+                    System.out.println(strCurrentLine);
+                }
+                System.out.println("Goodbye! Hope you have enjoyed creating the needed files using BibCreator.");
+            }
+            catch (FileNotFoundException e1){
+                System.out.println("Sorry! I am unable to display your desired files! Program will exit!");
+                return;
+            }
+            catch (IOException e1){
+                e.printStackTrace();
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
     /**
      * This method will open all the files in three formats to be written
      * @param printWriters array of printwriters
@@ -135,7 +184,6 @@ public class BibCreator {
         return sbNJ.toString();
     }
 
-
     /**
      * Method to create the ArticleModel passed in the ACM format and return it as a String
      * @param article the passed article model
@@ -161,9 +209,54 @@ public class BibCreator {
         return sbACM.toString();
     }
 
-
+    /**
+     *
+     * @param scanner the input file that is to be validated and be converted into three different formats
+     * @param printWriterACM to write the ACM format data into the ACM file for the opened latex file
+     * @param printWriterIEEE to write the IEEE format data into the ACM file for the opened latex file
+     * @param printWriterNJ to write the NJ format data into the ACM file for the opened latex file
+     * @return will return true if the validation is successful
+     */
     public static boolean processFilesForValidation(Scanner scanner, PrintWriter printWriterACM, PrintWriter printWriterIEEE, PrintWriter printWriterNJ) throws FileInvalidException {
-        return false;
-    }
+        String fileDataBuffer = "";
 
+        while (scanner.hasNextLine()) {
+            fileDataBuffer = new StringBuilder(fileDataBuffer).append(scanner.nextLine()).toString();
+        }
+        String[] articles_numbers = fileDataBuffer.split("@ARTICLE");
+        for (int j = 1; j < articles_numbers.length; j++) {
+            String[] fieldDetails = articles_numbers[j].split("},");
+            ArticleModel article = new ArticleModel();
+
+            for (int i = 0; i < fieldDetails.length - 1; i++) {
+                if (i == 0) {
+                    String[] startValue = fieldDetails[0].split(",");
+                    if (startValue.length != 2) {
+                        throw new FileInvalidException();
+
+                    }
+                    String[] FirstIndex = startValue[1].split("=\\{");
+                    if (FirstIndex.length != 2) {
+
+                       // throw new FileInvalidException(FirstIndex[0].trim());
+
+                    }
+                    article.setData(FirstIndex[0].trim(), FirstIndex[1]);
+                    continue;
+                }
+
+                String[] fieldAndValue = fieldDetails[i].split("=\\{");
+                if (fieldAndValue.length == 1) {
+
+                   // throw new FileInvalidException(fieldAndValue[0].trim());
+
+                }
+                article.setData(fieldAndValue[0].trim(), fieldAndValue[1]);
+            }
+
+
+
+        }
+        return true;
+    }
 }
