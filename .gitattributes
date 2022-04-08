@@ -1,2 +1,2 @@
-* linguist-vendored
-*.* linguist-language=Java
+*.java linguist-detectable=true
+*.* linguist-detectable=false
